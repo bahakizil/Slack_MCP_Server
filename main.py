@@ -1163,7 +1163,15 @@ class SlackMCPServer:
         """Run the FastMCP server"""
         self.mcp.run(**kwargs)
 
-# Create and run the server
+# Initialize server instance and ASGI app for Uvicorn
+server = SlackMCPServer()
+app = server.mcp.http_app()
+
+
+def main() -> None:
+    """Entry point for running the Slack MCP server."""
+    server.run(transport="streamable-http", host=os.getenv("HOST", "0.0.0.0"), port=int(os.getenv("PORT", "8000")))
+
+
 if __name__ == "__main__":
-    server = SlackMCPServer()
-    server.run()
+    main()
