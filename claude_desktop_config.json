@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "slack-mcp-server": {
+      "command": "python",
+      "args": ["/Users/bahakizil/Desktop/mcpslack/main.py"],
+      "env": {
+        "SLACK_BOT_TOKEN": "xoxb-your-bot-token-here",
+        "OPENAI_API_KEY": "sk-your-openai-api-key-here"
+      }
+    }
+  }
+}
